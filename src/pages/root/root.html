@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button
+              (click)="_us.cerrar_sesion()">
+        Salir
+      </button>
+    </ion-buttons>
+    <ion-title>Conexmet Movil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+    <ion-card>
+      <ion-card-header>
+        Bienvenido a la version movil Conexmet
+      </ion-card-header>
+      <ion-card-content>
+        Por favor seleccione la Sala que desea consultar:
+      </ion-card-content>
+    </ion-card>
+  <div *ngIf="_mp.salas.length !=0">
+    <ion-list>
+      <ion-item *ngFor="let item of _mp.salas"
+                  [navParams]="{ sala: item } "
+                  [navPush]="salaPage">
+       {{ item.sala }} {{ item.nombresala }}
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

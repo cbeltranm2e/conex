@@ -1,0 +1,117 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Conexmet Movil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+
+  <ion-card>
+  <ion-card-header>
+    Balance en Caja
+  </ion-card-header>
+  <ion-card-content>
+    INICIAL {{total | currency : 'USD' : 'symbol' : '1.0' }}
+
+    <ion-row>
+      <ion-col>
+        <strong>Descripción</strong>
+      </ion-col>
+      <ion-col>
+        <strong>Valor</strong>
+      </ion-col>
+   </ion-row>
+   <ion-row *ngIf="premiospagados < 0" style="background-color: #f1c40f">
+     <ion-col >
+       Premios Pagados
+     </ion-col>
+     <ion-col >
+       {{ negativo }}
+     </ion-col>
+   </ion-row>
+   <ion-row *ngIf="premiospagados >= 0">
+     <ion-col >
+       Premios Pagados
+     </ion-col>
+     <ion-col >
+       {{premiospagados | currency : 'USD' : 'symbol' : '1.0' }}
+     </ion-col>
+   </ion-row>
+   <ion-row *ngIf="basesingresadas < 0" style="background-color: #f1c40f">
+     <ion-col >
+       Bases Ingresadas
+     </ion-col>
+     <ion-col >
+       {{ negativo }}
+     </ion-col>
+   </ion-row>
+   <ion-row *ngIf="basesingresadas >= 0">
+     <ion-col >
+       Bases Ingresadas
+     </ion-col>
+     <ion-col >
+       {{basesingresadas | currency : 'USD' : 'symbol' : '1.0'}}
+     </ion-col>
+   </ion-row>
+   <ion-row *ngIf="dineroencaja < 0" style="background-color: #f1c40f" >
+     <ion-col >
+        Dinero en caja
+     </ion-col>
+     <ion-col >
+       {{ negativo }}
+     </ion-col>
+   </ion-row>
+   <ion-row *ngIf="dineroencaja >= 0">
+     <ion-col >
+        Dinero en caja
+     </ion-col>
+     <ion-col >
+       {{dineroencaja | currency : 'USD' : 'symbol' : '1.0'}}
+     </ion-col>
+   </ion-row>
+   <ion-row *ngIf="egresos < 0" style="background-color: #f1c40f" >
+     <ion-col >
+        Egresos
+     </ion-col>
+     <ion-col >
+       {{ negativo }}
+     </ion-col>
+   </ion-row>
+   <ion-row *ngIf="egresos >= 0">
+     <ion-col >
+        Egresos
+     </ion-col>
+     <ion-col >
+       {{egresos | currency : 'USD' : 'symbol' : '1.0'}}
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col >
+        Ultima Actualizacion
+     </ion-col>
+     <ion-col >
+       {{hora}}
+     </ion-col>
+   </ion-row>
+  </ion-card-content>
+  </ion-card>
+
+  <div>
+      <div style="display: block">
+      <canvas baseChart height="350"
+              [datasets]="barChartDataCaja"
+              [labels]="barChartLabelsCaja"
+              [options]="barChartOptionsCaja"
+              [legend]="barChartLegendCaja"
+              [chartType]="barChartTypeCaja"
+              (chartHover)="chartHovered($event)"
+              ></canvas>
+      </div>
+  </div>
+  <button ion-button block icon-left
+          (click)="cargar_pagina()">
+    <ion-icon name="refresh"></ion-icon>
+      Actualizar
+  </button>
+</ion-content>

@@ -1,0 +1,74 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Salas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+
+  <ion-card>
+  <ion-card-header>
+    Vesión Móvil de CONEXMET
+  </ion-card-header>
+  <ion-card-content>
+    Realice las consultas más importantes de la operación de su casino en timepo real.
+    <ion-grid>
+      <ion-row>
+        <ion-col >
+          Sala
+        </ion-col>
+        <ion-col >
+          {{sala.sala}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col >
+          Nombre Sala
+        </ion-col>
+        <ion-col >
+          {{sala.nombresala}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col >
+          Direccion Sala
+        </ion-col>
+        <ion-col >
+          {{sala.direccionsala}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
+
+  <button ion-button
+          block
+          color="primary"
+          [navParams]="{sala : sala}"
+          [navPush]="balancecajaPage">
+    Balance en caja
+  </button>
+  <button ion-button
+          block
+          color="primary"
+          [navParams]="{sala : sala}"
+          [navPush]="ocupacionPage">
+    Ocupacion
+  </button>
+  <button ion-button
+          block
+          color="primary"
+          [navParams]="{sala : sala}"
+          [navPush]="ingresometPage">
+    Ingreso MET
+  </button>
+  <button ion-button
+          block
+          color="primary"
+          [navParams]="{sala : sala}"
+          [navPush]="balancesalaPage">
+    Balance total sala
+  </button>
+
+</ion-content>

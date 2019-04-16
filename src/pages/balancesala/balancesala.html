@@ -1,0 +1,100 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Conexmet Movil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <ion-card>
+  <ion-card-header>
+    Balance total sala
+  </ion-card-header>
+  <ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <strong>Descripción</strong>
+      </ion-col>
+      <ion-col>
+        <strong>Valor</strong>
+      </ion-col>
+   </ion-row>
+   <ion-row *ngIf="entradas < 0" style="background-color: #f1c40f">
+     <ion-col >
+       Entradas
+     </ion-col>
+     <ion-col >
+       {{ negativo }}
+     </ion-col>
+   </ion-row>
+   <ion-row *ngIf="entradas >= 0">
+     <ion-col >
+       Entradas
+     </ion-col>
+     <ion-col >
+       {{entradas | currency : 'USD' : 'symbol' : '1.0'}}
+     </ion-col>
+   </ion-row>
+   <ion-row *ngIf="salidas < 0" style="background-color: #f1c40f">
+     <ion-col >
+       Salidas
+     </ion-col>
+     <ion-col >
+       {{ salidas }}
+     </ion-col>
+   </ion-row>
+    <ion-row *ngIf="salidas >= 0">
+     <ion-col >
+       Salidas
+     </ion-col>
+     <ion-col >
+       {{salidas | currency : 'USD' : 'symbol' : '1.0'}}
+     </ion-col>
+   </ion-row>
+   <ion-row *ngIf="neto < 0" style="background-color: #f1c40f">
+     <ion-col >
+       Neto
+     </ion-col>
+     <ion-col >
+       {{ negativo }}
+     </ion-col>
+   </ion-row>
+   <ion-row *ngIf="neto >= 0">
+     <ion-col >
+       Neto
+     </ion-col>
+     <ion-col >
+       {{neto | currency : 'USD' : 'symbol' : '1.0'}}
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col >
+        Ultima Actualizacion
+     </ion-col>
+     <ion-col >
+       {{hora}}
+     </ion-col>
+   </ion-row>
+  </ion-card-content>
+  </ion-card>
+  <div>
+      <div style="display: block">
+      <canvas baseChart height="350"
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              ></canvas>
+      </div>
+  </div>
+  <button ion-button block icon-left
+          (click)="cargar_pagina()">
+    <ion-icon name="refresh"></ion-icon>
+      Actualizar
+  </button>
+
+</ion-content>

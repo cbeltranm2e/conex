@@ -1,0 +1,130 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Conexmet Movil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+
+  <ion-card>
+  <ion-card-header>
+    <ion-card-title>Ingreso MET</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    Total Billeteros {{ totalbilleteros | currency : 'USD' : 'symbol' : '1.0'}}
+    <hr>
+    Ultima Actualizacion {{ hora }}
+   <hr>
+
+    <ion-row>
+      <ion-col>
+        <strong>Top</strong>
+      </ion-col>
+      <ion-col>
+        <strong>No Interno</strong>
+      </ion-col>
+      <ion-col>
+        <strong>Valor</strong>
+      </ion-col>
+      <ion-col>
+        <strong>Marca</strong>
+      </ion-col>
+      <ion-col>
+        <strong>Juego</strong>
+      </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col >
+       1
+     </ion-col>
+     <ion-col >
+       {{billetero1}}
+     </ion-col>
+     <ion-col >
+       {{dinerobilletero1 | currency : 'USD' : 'symbol' : '1.0'}}
+     </ion-col>
+     <ion-col >
+       {{marcabilletero1}}
+     </ion-col>
+     <ion-col >
+       {{juegobilletero1}}
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col >
+       2
+     </ion-col>
+     <ion-col >
+       {{billetero2}}
+     </ion-col>
+     <ion-col >
+       {{dinerobilletero2 | currency : 'USD' : 'symbol' : '1.0'}}
+     </ion-col>
+     <ion-col >
+       {{marcabilletero2}}
+     </ion-col>
+     <ion-col >
+       {{juegobilletero2}}
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col >
+       3
+     </ion-col>
+     <ion-col >
+       {{billetero3}}
+     </ion-col>
+     <ion-col >
+       {{dinerobilletero3 | currency : 'USD' : 'symbol' : '1.0'}}
+     </ion-col>
+     <ion-col >
+       {{marcabilletero3}}
+     </ion-col>
+     <ion-col >
+       {{juegobilletero3}}
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col >
+       4
+     </ion-col>
+     <ion-col >
+       {{billetero4}}
+     </ion-col>
+     <ion-col >
+       {{dinerobilletero4 | currency : 'USD' : 'symbol' : '1.0'}}
+     </ion-col>
+     <ion-col >
+       {{marcabilletero4}}
+     </ion-col>
+     <ion-col >
+       {{juegobilletero4}}
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col >
+       5
+     </ion-col>
+     <ion-col >
+       {{billetero5}}
+     </ion-col>
+     <ion-col >
+       {{dinerobilletero5 | currency : 'USD' : 'symbol' : '1.0'}}
+     </ion-col>
+     <ion-col >
+       {{marcabilletero5}}
+     </ion-col>
+     <ion-col >
+       {{juegobilletero5}}
+     </ion-col>
+   </ion-row>
+  </ion-card-content>
+  </ion-card>
+  <button ion-button block icon-left
+          (click)="cargar_pagina()">
+    <ion-icon name="refresh"></ion-icon>
+      Actualizar
+  </button>
+
+</ion-content>

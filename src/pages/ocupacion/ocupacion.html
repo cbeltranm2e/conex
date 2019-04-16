@@ -1,0 +1,73 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Conexmet Movil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <ion-card>
+  <ion-card-header>
+    Ocupacion
+  </ion-card-header>
+  <ion-card-content>
+    Máquinas en sala :  {{totalmet}}
+
+    <ion-row>
+      <ion-col>
+        <strong>Descripción</strong>
+      </ion-col>
+      <ion-col>
+        <strong>Cantidad</strong>
+      </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col >
+       Fuera de línea
+     </ion-col>
+     <ion-col >
+       {{maqfueradelinea}}
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col >
+       Ocupadas
+     </ion-col>
+     <ion-col >
+       {{maqocupadas}}
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col >
+       No ocupadas
+     </ion-col>
+     <ion-col >
+       {{maqnoocupadas}}
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col >
+        Ultima Actualizacion
+     </ion-col>
+     <ion-col >
+       {{hora}}
+     </ion-col>
+   </ion-row>
+  </ion-card-content>
+  </ion-card>
+  <div style="display:block;">
+    <canvas baseChart
+    [data]='doughnutChartData'
+    [labels]='doughnutChartLabels'
+    [chartType]='doughnutChartType'
+    >
+
+    </canvas>
+  </div>
+  <button ion-button block icon-left
+          (click)="cargar_pagina()">
+    <ion-icon name="refresh"></ion-icon>
+      Actualizar
+  </button>
+
+</ion-content>
